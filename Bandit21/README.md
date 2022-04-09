@@ -13,10 +13,11 @@ A program is running automatically at regular intervals from cron, the time-base
 | crontab | files used to schedule the execution of programs |
 | ------|-----|
 | cron | Explanation |
-| ------|-----|
-| cron | Explanation |
-| ------|-----|
 
 
+## Let's have fun:
+
+
+## Solution 
 
 
