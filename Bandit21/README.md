@@ -3,7 +3,7 @@ Bandit Level 21 → Level 22
 </h1>
 
 <p align="center">
-  <a href="#Goal">Level Goal   |   
+  <a href="#Goal">Level Goal</a>   |   
   <a href="#Cmd">Commands you may need to solve this level</a>   |  
   <a href="#fun">Let's have fun</a>   |  
   <a href="#Solution">Solution</a> 
@@ -16,9 +16,7 @@ A program is running automatically at regular intervals from cron, the time-base
 | command | Explanation |
 | ------|-----|
 | cron | Explanation |
-| ------|-----|
 | crontab | files used to schedule the execution of programs |
-| ------|-----|
 | cron | Explanation |
 
 
