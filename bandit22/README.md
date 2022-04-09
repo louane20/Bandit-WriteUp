@@ -42,29 +42,63 @@ We have often seen variety of she-bang or script header. We often wonder why is 
 Well..it seems that this level is similar to the previous one..so let's try first to follow the same steps with complete stupidity, then let's go deeper and explain everything in detail.
 
 - First, let's go to the directory /etc/cron.d/ and take a look at what's inside. Since we are looking for the bandit 23 password, let's read the file cronjob_bandit23. In it we will find the script cronjob_bandit23.sh. Let's see what it contains.
-``
+````
 bandit22@bandit:~$ cd  /etc/cron.d/
+
 bandit22@bandit:/etc/cron.d$ ls
 cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+
 bandit22@bandit:/etc/cron.d$ cat cronjob_bandit23
 @reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
 * * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+
 bandit22@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh
 #!/bin/bash
 myname=$(whoami)
 mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
 echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
-``
 cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+````
+
+- hmm, it seems strange we didn't understand anything.. well let's follow the advice and try to execute it
+````
 bandit22@bandit:/etc/cron.d$ . /usr/bin/cronjob_bandit23.sh
 Copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f91573b38db3
-bandit22@bandit:/etc/cron.d$ cd /tmp/8169b67bd894ddbb4412f91573b38db3
--bash: cd: /tmp/8169b67bd894ddbb4412f91573b38db3: Not a directory
+````
+
+- Oh amazing it seems that it copy the password from the file that we do not have permission "/etc/bandit_pass/bandit22" to  "/tmp/8169b67bd894ddbb4412f91573b38db3". Let's see what we have inside this file
+
+````
 bandit22@bandit:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+````
+
+
+We got it successfully!!
+
+- Now let's go back a bit and try to understand what's going on here.
+````
+#!/bin/bash
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+````
+In general, we understand from the script that the password is stored in the file named $mytarget
+in which
+-$mynam = bandit23
+-cut  is a command for cutting out the sections from each line of files and writing the result to standard output. It can be used to cut parts of a line by byte position, character and field.
+-md5sum  is designed to verify data integrity using MD5 (Message Digest Algorithm 5).
+MD5 is 128-bit cryptographic hash and if used properly it can be used to verify file authenticity and integrity.
+
+Amazing.. Now we understand the contents of the script
 
 
 ## Solution 
-
+````
+bandit22@bandit:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+````
 
 
