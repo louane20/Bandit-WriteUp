@@ -36,6 +36,13 @@ crontab(1) is the man page[^1] of crontab command.
 [^1]: The man pages are divided in sections. Each section groups similar man pages. For example, Section 1 holds user commands (commands runable by all users in the system). Section 8 covers SysAdmin commands (the commands that demand root access to be run). Section 5 covers file formats.
 crontab(5) is the man page of crontab file.
 
+-How does Cron work?
+Scheduled cron jobs are defined at the system level in the /etc/crontab file and in the /etc/cron.d/ folder
+To modify your scheduled tasks type: crontab -e. Tasks defined in crontab are executed by root.
+
+Here is a short description of the structure of an entry in a crontab file. :
+minute hour days_in_the_month month day_of_the_week The_command_to_run.
+
 ## Let's try
 
 
