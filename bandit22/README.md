@@ -35,8 +35,33 @@ The basic steps involved with shell scripting are writing the script, making the
 Shell scripts contain ASCII text and are written using a text editor, word processor or graphical user interface (GUI). The content of the script is a series of commands in a language that can be interpreted by the shell. Functions that shell scripts support include loops, variables, if/then/else statements, arrays and shortcuts. Once complete, the file is saved typically with a .txt or .sh extension and in a location that the shell can access.
 
 - (#!/bin/bash ) What exactly is this ?
+This first line (#!/bin/bash or #!/bin/sh) has a name. It is known as ‘she-bang‘(shabang). This derives from the concatenation of the tokens sharp (#) and bang (!).  it tells the shell what program to interpret the script with, when executed.
+We have often seen variety of she-bang or script header. We often wonder why is that particular script using that particular she-bang, why not some other. On Unix-like Operating systems we have a choice of multiple shells. The shell is responsible not only for the little prompts but also interpreting the commands of the script. Thus the shell plays an important role specially when we implement big and complex logics using conditions, pipes, loops , etc. /bin/bash is the most common shell used as default shell for user login of the linux system. The shell’s name is an acronym for Bourne-again shell. Bash can execute the vast majority of scripts and thus is widely used because it has more features, is well developed and better syntax.
 
 ## Let's try
+Well..it seems that this level is similar to the previous one..so let's try first to follow the same steps with complete stupidity, then let's go deeper and explain everything in detail.
+
+- First, let's go to the directory /etc/cron.d/ and take a look at what's inside. Since we are looking for the bandit 23 password, let's read the file cronjob_bandit23. In it we will find the script cronjob_bandit23.sh. Let's see what it contains.
+``
+bandit22@bandit:~$ cd  /etc/cron.d/
+bandit22@bandit:/etc/cron.d$ ls
+cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+bandit22@bandit:/etc/cron.d$ cat cronjob_bandit23
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+bandit22@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+``
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+bandit22@bandit:/etc/cron.d$ . /usr/bin/cronjob_bandit23.sh
+Copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f91573b38db3
+bandit22@bandit:/etc/cron.d$ cd /tmp/8169b67bd894ddbb4412f91573b38db3
+-bash: cd: /tmp/8169b67bd894ddbb4412f91573b38db3: Not a directory
+bandit22@bandit:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 
 
 ## Solution 
