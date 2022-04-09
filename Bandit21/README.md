@@ -7,7 +7,7 @@ Bandit Level 21 → Level 22
   <a href="#Commands you may need to solve this level">Commands you may need to solve this level</a>   |  
   <a href="#Let's have fun">Let's have fun</a>   |  
   <a href="#Let's try">Let's try</a>   |
-  <a href="#Solution">Solution</a> 
+  <a href="#Solu tion">Solution</a> 
 </p>
 
 ## Level Goal
