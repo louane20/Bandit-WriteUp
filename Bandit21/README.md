@@ -72,12 +72,13 @@ cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 ````
 First this script gives some permission to the file t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv , and then receives the data provided in the file /etc/bandit_pass/bandit22 from the directory name we can expect that we will finally find the password. let's make sure
 ````
-
 bandit21@bandit:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
-
-
+````
 
 ## Solution 
-
+````
+bandit21@bandit:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+````
 
