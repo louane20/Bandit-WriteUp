@@ -39,13 +39,17 @@ crontab(5) is the man page of crontab file.
 
 - How does Cron work?<br/>
 Scheduled cron jobs are defined at the system level in the /etc/crontab file and in the /etc/cron.d/ folder
-To modify your scheduled tasks type: crontab -e. Tasks defined in crontab are executed by root.
-
+To modify your scheduled tasks type: crontab -e. Tasks defined in crontab are executed by root.<br/>
 Here is a short description of the structure of an entry in a crontab file:<br/>
 minute hour days_in_the_month month day_of_the_week The_command_to_run.
 
 ## Let's try
 
+Since we are using the user Pandit 21 no root then we cannot use crontab.
+So let's go to the /etc/cron.d/ directory and see what it contains
+````
+bandit21@bandit:~$ cd /etc/cron.d/
+````
 
 ## Solution 
 
