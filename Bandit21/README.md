@@ -1,6 +1,5 @@
 <h1 align="center">
-  Bandit WriteUp
- <img src="https://miro.medium.com/proxy/1*VLXFzVtGx16B1iH81bcTPw.png" width="60px">
+Bandit Level 21 → Level 22
 </h1>
 
 
