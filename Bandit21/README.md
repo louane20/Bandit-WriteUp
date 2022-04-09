@@ -10,7 +10,7 @@ Bandit Level 21 → Level 22
   <a href="#Solution">Solution</a> 
 </p>
 
-## Level Goal:
+## Level Goal
 A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
 
 ## Commands you may need to solve this level:
@@ -20,7 +20,7 @@ A program is running automatically at regular intervals from cron, the time-base
 | crontab | opens the cron table for editing  |
 
 
-## Let's have fun:
+## Let's have fun
 
 Through the given text, we notice the presence of the word cron, so what is cron and why should we review the file /etc/cron.d/ ?
 
