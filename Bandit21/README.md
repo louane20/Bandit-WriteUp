@@ -3,11 +3,11 @@ Bandit Level 21 → Level 22
 </h1>
 
 <p align="center">
-  <a href="#Level_Goal">Level Goal</a>   |   
-  <a href="#Commands you may need to solve this level">Commands you may need to solve this level</a>   |  
-  <a href="#Let's have fun">Let's have fun</a>   |  
-  <a href="#Let's try">Let's try</a>   |
-  <a href="#Solu tion">Solution</a> 
+  <a href="#Level-Goal">Level Goal</a>   |   
+  <a href="#Commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</a>   |  
+  <a href="#Let's-have-fun">Let's have fun</a>   |  
+  <a href="#Let's-try">Let's try</a>   |
+  <a href="#Solution">Solution</a> 
 </p>
 
 ## Level Goal
