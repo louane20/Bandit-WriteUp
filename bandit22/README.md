@@ -1,5 +1,5 @@
 <h1 align="center">
-Bandit Level 21 → Level 22
+Bandit Level 22 → Level 23
 </h1>
 
 <p align="center">
@@ -73,11 +73,10 @@ Copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f9157
 bandit22@bandit:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 ````
+Oops looks like it's the previous level password
 
 
-We got it successfully!!
-
-- Now let's go back a bit and try to understand what's going on here.
+- ok!! let's go back a bit and try to understand what's going on here.
 ````
 #!/bin/bash
 myname=$(whoami)
@@ -87,18 +86,31 @@ cat /etc/bandit_pass/$myname > /tmp/$mytarget
 ````
 In general, we understand from the script that the password is stored in the file named $mytarget
 in which
--$mynam = bandit23
+-$myname =$(whoami) ==>  It displays the username of the current user when this command is invoked.
+-$myname=bandit22 
+Ok, now things are starting to make sense let's continue.</br>
+Ok, now things are starting to make sense
 -cut  is a command for cutting out the sections from each line of files and writing the result to standard output. It can be used to cut parts of a line by byte position, character and field.
--md5sum  is designed to verify data integrity using MD5 (Message Digest Algorithm 5).
-MD5 is 128-bit cryptographic hash and if used properly it can be used to verify file authenticity and integrity.
+-md5sum  is designed to verify data integrity using MD5[^1] (Message Digest Algorithm 5).
+[^1]: MD5 is 128-bit cryptographic hash and if used properly it can be used to verify file authenticity and integrity.
 
-Amazing.. Now we understand the contents of the script
+It seems that they helped us.. Let's try the same steps they followed with bandit23 and see the result
+````
+bandit22@bandit:/etc/cron.d$ myname=bandit23
+bandit22@bandit:/etc/cron.d$ echo I am user $myname | md5sum | cut -d ' ' -f 1
+8ca319486bfbbc3663ea0fbe81326349
+bandit22@bandit:/etc/cron.d$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+````
+Do not get too excited, this method is not effective with the rest of the levels. Try it and it will appear that the file does not exist
 
 
 ## Solution 
 ````
-bandit22@bandit:/etc/cron.d$ cat /tmp/8169b67bd894ddbb4412f91573b38db3
-Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+bandit22@bandit:/etc/cron.d$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
 ````
 
 
