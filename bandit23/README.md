@@ -5,7 +5,6 @@ Bandit Level 23 → Level 24
 <p align="center">
   <a href="#Level-Goal">Level Goal</a>   |   
   <a href="#Commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</a>   |  
-  <a href="#Lets-have-fun">Let's have fun</a>   |  
   <a href="#Lets-try">Let's try</a>   |
   <a href="#Solution">Solution</a> 
 </p>
@@ -22,12 +21,11 @@ A program is running automatically at regular intervals from cron, the time-base
 | crontab | opens the cron table for editing  |
 
 
-## Let's have fun
-
-Well.. in the previous level we used the shell script, but our use of it was superficial so we did not go into depth with it.. but the note added to this level dely used because it has more features, is well developed and better syntax.
 
 ## Let's try
-
+To find the pincode we have to try all of the 10000 combinations..that's crazy
+Looks like it's time to use what we've learned with the shell script....let's have fun
+First we have to connect to the server then let the script do its work by trying all 10000 combinations
 ## Solution 
 
 
