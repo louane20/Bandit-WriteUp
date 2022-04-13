@@ -63,6 +63,8 @@ bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
 ````
 According to what we learned a little while ago. We conclude that every second the shell script cronjob_bandit22.sh is executed. Let's see what we have inside this script
 
+ The @reboot is an special keyword that is used by cron to run a job when the system is rebooted.
+
 ````
 bandit21@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit22.sh
 #!/bin/bash
