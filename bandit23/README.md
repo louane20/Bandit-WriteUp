@@ -12,7 +12,9 @@ Bandit Level 23 → Level 24
 ## Level Goal
 A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
 
-- NOTE:<br/> Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
+- NOTE:<br/> This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+
+- NOTE 2:<br/> Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
 
 ## Commands you may need to solve this level:
 | command | Explanation |
@@ -23,9 +25,46 @@ A program is running automatically at regular intervals from cron, the time-base
 
 
 ## Let's try
-To find the pincode we have to try all of the 10000 combinations..that's crazy
-Looks like it's time to use what we've learned with the shell script....let's have fun
-First we have to connect to the server then let the script do its work by trying all 10000 combinations
+ Look, they said we'll write the script this time.. that's cool.. looks like we're going to have a lot of fun
+ 
+- First, let's follow the steps of the previous level to see what we have inside the file cronjob_bandit24
+
+````
+bandit23@bandit:~$ cd /etc/cron.d
+bandit23@bandit:/etc/cron.d$ ls
+cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+bandit23@bandit:/etc/cron.d$ cat cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+````
+
+- It looks like it will send us as before to the shell script with the same file name.. well, we have learned shellscript in previous levels and understand its basics, so let's try to analyze the script in front of us
+````
+bandit23@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+````
+- myname = bandit24
+- 
+
+
 ## Solution 
 
 
