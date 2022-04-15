@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
- <img src="https://user-images.githubusercontent.com/53615807/101657981-94eb1e80-3a55-11eb-91c5-55e1a1c93545.png" width="50px" align="center">
+ <img src="https://user-images.githubusercontent.com/53615807/101657981-94eb1e80-3a55-11eb-91c5-55e1a1c93545.png" width="500" align="center">
 </p>
 In this repo I'll post write-ups to solve the levels of the popular ssh based wargame Bandit, avaiable at https://overthewire.org/wargames/bandit/
 
