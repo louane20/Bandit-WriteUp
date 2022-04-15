@@ -1,7 +1,8 @@
 <h1 align="center">
   CTF-OverTheWire-Bandit
 </h1>
- <img src="https://miro.medium.com/proxy/1*VLXFzVtGx16B1iH81bcTPw.png" width="120px">
+
+ <img src="https://miro.medium.com/proxy/1*VLXFzVtGx16B1iH81bcTPw.png" width="300px" align="center">
 
 
 Bandit20
