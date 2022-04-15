@@ -5,7 +5,7 @@
 <p align="center">
  <img src="https://miro.medium.com/proxy/1*VLXFzVtGx16B1iH81bcTPw.png" width="600" align="center">
 </p>
-In this repo I'll be posting write-ups to solve the levels of the popular ssh based wargame Bandit, avaiable at https://overthewire.org/wargames/bandit/
+In this repo I'll post write-ups to solve the levels of the popular ssh based wargame Bandit, avaiable at https://overthewire.org/wargames/bandit/
 
 # What is OverTheWire?
 
