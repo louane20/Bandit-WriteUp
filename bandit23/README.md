@@ -5,6 +5,7 @@ Bandit Level 23 → Level 24
 <p align="center">
   <a href="#Level-Goal">Level Goal</a>   |   
   <a href="#Commands-you-may-need-to-solve-this-level">Commands you may need to solve this level</a>   |  
+  <a href="#Lets-have-fun">Let's try</a>   |
   <a href="#Lets-try">Let's try</a>   |
   <a href="#Solution">Solution</a> 
 </p>
@@ -23,9 +24,63 @@ A program is running automatically at regular intervals from cron, the time-base
 | crontab | opens the cron table for editing  |
 
 
+## Lest's hae fun
+Look, they said we'll write the script this time.. that's cool.. looks like we're going to have a lot of fun
+Well, we have already learned the basics of Shell.. Now let's learn how to write a Shell script
+
+# General principles of shell scripting
+
+A shell script is a series of commands. we have already manipulated the shell on the command line, so we can start our first scripts.
+
+- comments
+
+Almost all computer languages allow the insertion of comments. To do this, simply precede each comment line with the character “#”.
+````
+#this is a comment
+````
+
+ - condition
+The shell offers two main ways to perform a test
+````
+test expression
+[expression]
+````
+
+- The if condition
+````
+
+if condition 
+ then commands
+elif condition
+ then commands
+else commands 
+fi
+````
+
+- The case condition
+````
+case string in
+  pattern) commands ;;
+  pattern) commands ;;
+esac
+````
+
+- The while loop
+````
+while
+  do commands
+done
+````
+
+- The for loop
+````
+for var in list of strings
+do commands
+done
+````
+
 
 ## Let's try
- Look, they said we'll write the script this time.. that's cool.. looks like we're going to have a lot of fun
  
 - First, let's follow the steps of the previous level to see what we have inside the file cronjob_bandit24
 
