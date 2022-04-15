@@ -28,7 +28,7 @@ Good job getting a shell! Now hurry and grab the password for bandit27!
 :set shell=/bin/bash
 ````
 
-- then use subshell using this command 
+- then use subshell to list the directory contents using this command 
 ````
 :ls!
 ````
