@@ -29,9 +29,19 @@ Output:
 --spaces in this filename--
 ```
 
-The filename contains spaces, so we need to enclose it in quotes when using the `cat` command.
+The filename contains whitespace characters. Before executing a command, the shell parses the command line and performs **word splitting**, where unquoted spaces are treated as argument separators.
 
-Display the file content using:
+For example, the following command would be interpreted as multiple arguments instead of a single filename:
+
+```bash
+cat --spaces in this filename--
+```
+
+To prevent **word splitting**, we use **shell quoting** by enclosing the filename in double quotes. This ensures the shell passes the entire filename as a single argument to `cat`.
+
+The `./` prefix specifies that the file is located in the current working directory (relative path).
+
+Run:
 
 ```bash
 cat ./"--spaces in this filename--"
@@ -43,7 +53,7 @@ Output:
 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
 ```
 
-We have successfully found the password for **bandit3**.
+The output is the password for **bandit3**.
 
 ---
 
