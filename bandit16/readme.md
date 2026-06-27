@@ -43,7 +43,7 @@ Output:
 
 ```text
 Correct!
-BfMYroe26WYalil77FoDi9qh59eK5xNr
+kS0Hf0u5HiXFwKMKFqXvPdOTNGGa0X8V
 ```
 
 The output is the password for **bandit16**.
@@ -74,5 +74,5 @@ The output is the password for **bandit16**.
 ## Solution
 
 ```text
-BfMYroe26WYalil77FoDi9qh59eK5xNr
+kS0Hf0u5HiXFwKMKFqXvPdOTNGGa0X8V
 ```
